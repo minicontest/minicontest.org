@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>{{ challenge.title|escape }}</title>
+        <link rel="stylesheet" href="/minicontest.css" type="text/css" media="screen">
+    </head>
+    <body>
+        <div id="content">
+            <h1>{{ challenge.title|escape }}</h1>
+            <div id="moderation-status">{{ moderation_status }}</div>
+            <div id="challenge-author">{{ challenge.created_by.nickname }}</div>
+            <div>{{ challenge.description|escape }}</div>
+            <div id="enter-link"><a href="/challenges/{{ challenge.key.id }}/enter">Enter this Challenge</a></div>
+            {% for entry in entries %}
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="author">{{ challenge.author.nickname }}</div>
+                    <div class="entry-title"><a href="/entries/{{ entry.key.id }}">{{ entry.title|escape }}</a></div>
+                </div>
+                <p>{{ entry.description|escape }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

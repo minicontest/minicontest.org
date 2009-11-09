@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>minicontest.org</title>
+        <link rel="stylesheet" href="/minicontest.css" type="text/css" media="screen">
+        <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js"></script>
+        <script>
+            function moderate_challenge(id, action)
+            {
+                $('accept-' + id).disabled = true
+                $('reject-' + id).disabled = true
+                new Ajax.Request('/admin/challenge/' + action + '/' + id, {
+                    method: 'post',
+                    onComplete: function(transport) {
+                        $('challenge-' + id).style.visibility = 'hidden';
+                    }
+                })
+            }
+        
+            function accept_challenge(id)
+            {
+                moderate_challenge(id, 'accept')
+            }
+            
+            function reject_challenge(id)
+            {
+                moderate_challenge(id, 'reject')
+            }
+        </script>
+    </head>
+    <body>
+        <div id="content">
+            <h1>Admin Queue</h1>
+            {% for challenge in challenges %}
+            <div class="challenge" id="challenge-{{ challenge.key.id }}">
+                <div class="challenge-header">
+                    <div class="attribution">{{ challenge.created_by }}</div>
+                    <div class="challenge-title"><a href="/challenges/{{ challenge.key.id }}">{{ challenge.title|escape }}</a></div>
+                </div>
+                <p>{{ challenge.description|escape }}</p>
+                <form id="challenge-form-{{ challenge.key.id }}">
+                    <input type="button" name="accept-{{ challenge.key.id }}" value="Accept" id="accept-{{ challenge.key.id }}" onclick="accept_challenge('{{ challenge.key.id }}')">
+                    <input type="button" name="reject-{{ challenge.key.id }}" value="Reject" id="reject-{{ challenge.key.id }}" onclick="reject_challenge('{{ challenge.key.id }}')">
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

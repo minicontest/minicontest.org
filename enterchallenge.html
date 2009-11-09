@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>{{ challenge.title|escape }}</title>
+        <link rel="stylesheet" href="/minicontest.css" type="text/css" media="screen">
+    </head>
+    <body>
+        <div id="content">
+            <h1>{{ challenge.title|escape }}</h1>
+            <div id="challenge-author">{{ challenge.created_by.nickname }}</div>
+            <div>{{ challenge.description|escape }}</div>
+            <form action="/challenges/{{ challenge.key.id }}/submitentry" method="POST" accept-charset="utf-8">
+                Duration: 
+                <select name="timeframe" id="timeframe" single onchange="" size="1">
+                    <option value="25">24 Hours (1 Day)</option>
+                    <option value="73">72 Hours (3 Days)</option>
+                    <option value="169">168 Hours (1 Week)</option>
+                </select><br />
+                <label for="entry-title">Title: </label><input type="text" name="entry-title" value="" id="entry-title"><br />
+                Description:<br/>
+                <textarea name="entry-description" rows="16"></textarea><br />
+                <label for="entry-github-clone-url">Github Clone URL: </label><input type="text" name="entry-github-clone-url" value="" id="entry-github-clone-url"><br />
+                <input type="submit" value="Enter this Challenge">
+            </form>
+        </div>
+    </body>
+</html>

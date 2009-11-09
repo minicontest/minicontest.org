@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>minicontest.org</title>
+        <link rel="stylesheet" href="/minicontest.css" type="text/css" media="screen">
+    </head>
+    <body>
+        <div id="content">
+            <h1>New Challenge</h1>
+            <p>A Challenge is a theme or restriction on what game can be
+            produced, intended to promote creativity.</p>
+            <form id="new-challenge-form" method="POST" action="/challenges/submit" accept-charset="utf-8">
+                <div class="attribution">{{ user.nickname }}</div>
+                <label for="challenge-title">Challenge Title:</label><input type="text" name="challenge-title" value="" id="challenge-title">
+                <div id="description">Challenge Description:<br/>
+                <textarea id="challenge-description" name="challenge-description" rows="16"></textarea></div>
+                <input type="submit" name="submit" value="Submit For Moderation" id="submit">
+            </form>
+        </div>
+    </body>
+</html>

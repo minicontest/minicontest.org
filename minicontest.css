@@ -1,0 +1,75 @@
+body {
+    font-family: Helvetica, sans;
+    line-height: 185%;
+    text-align: center;
+}
+
+h1 {
+    padding-top: 0.5em;
+    text-align: center;
+    color: #800000;
+}
+
+#content {
+    max-width: 40em;
+    text-align: left;
+    margin: auto;
+}
+
+#mainbuttons {
+    width: 100%;
+}
+
+.button {
+    text-align: center;
+    width: 33%;
+    height: 4em;
+    background-color: #800000;
+    color: #ffffff;
+    text-shadow: #000000 1px 1px 1px;
+}
+
+.button a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#challenge-search-form {
+    margin-bottom: 2em;
+}
+
+.challenge-title a {
+    color: #800000;
+    text-decoration: none;
+}
+
+.entry-title a {
+    color: #800000;
+    text-decoration: none;
+}
+
+#enter-link a {
+    color: #800000;
+    text-decoration: none;
+}
+
+.attribution {
+    float:right;
+}
+
+#description {
+    width: 100%;
+}
+
+#challenge-description {
+    width: 100%;
+}
+
+#moderation-status {
+    float: right;
+    color: #800000;
+}
+
+#challenge-author {
+    margin-bottom: 1em;
+}

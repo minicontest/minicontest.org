@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>minicontest.org</title>
+        <link rel="stylesheet" href="/minicontest.css" type="text/css" media="screen">
+    </head>
+    <body>
+        <div id="content">
+            <h1>Challenges</h1>
+            <p>Challenges are themes or restrictions on what you can enter.
+            They're intended to help you be creative by introducing restrictions.</p>
+            <form id="challenge-search-form"><label for="search-challenges">Search Challenges: </label><input type="text" name="search-challenges" value="" id="search-challenges"></form>
+            {% for challenge in challenges %}
+            <div class="challenge">
+                <div class="challenge-header">
+                    <div class="attribution">{{ challenge.created_by }}</div>
+                    <div class="challenge-title"><a href="/challenges/{{ challenge.key.id }}">{{ challenge.title|escape }}</a></div>
+                </div>
+                <p>{{ challenge.description|escape }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
