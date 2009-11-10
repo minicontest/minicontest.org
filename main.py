@@ -7,7 +7,7 @@ from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.api import users
 
-from markdown2 import markdown
+template.register_template_library('extrafilters')
 
 class Challenge(db.Model):
     title = db.StringProperty(default='')

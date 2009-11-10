@@ -15,7 +15,7 @@
                     <div class="attribution">{{ challenge.created_by }}</div>
                     <div class="challenge-title"><a href="/challenges/{{ challenge.key.id }}">{{ challenge.title|escape }}</a></div>
                 </div>
-                <p>{{ challenge.description|escape }}</p>
+                <p>{{ challenge.description|markdown }}</p>
             </div>
             {% endfor %}
         </div>
